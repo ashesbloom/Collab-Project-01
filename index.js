@@ -4,11 +4,11 @@ const app = express();
 const path = require('path');
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));  
-// app.set('views', path.join(__dirname, 'views'));
+app.set('views',path.resolve('./views'));
+app.use(express.static(path.resolve('./public')));
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.render('home');
 });
 
 app.listen(3000, () => {console.log('Server is running on port 3000')});    
