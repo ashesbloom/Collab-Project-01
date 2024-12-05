@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Restaurant Explorer</title>
+    <style>
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    <h1> server is here</h1>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Restaurant Explorer</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/menu">Menu</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Today's Special Section -->
+    <div class="today-special">
+        <h2>Today's Special</h2>
+        <div class="special-item">
+            <h3>
+                <%= todaysSpecial.name %>
+            </h3>
+            <p>
+                <%= todaysSpecial.description %>
+            </p>
+            <p>Price: $<%= todaysSpecial.price %>
+            </p>
+        </div>
+    </div>
+
+    <!-- Restaurant Cards Section -->
+    <div class="menu-section">
+        <h2>Our Menu</h2>
+        <div class="card-container">
+            <% for(let i=0; i < restaurantCount; i++) { %>
+                <div class="card">
+                    <h3>
+                        <%= restaurantCards[i].name %>
+                    </h3>
+                    <img src="<%= restaurantCards[i].image %>" alt="<%= restaurantCards[i].name %>">
+                    <p>
+                        <%= restaurantCards[i].description %>
+                    </p>
+                    <p>Price: $<%= restaurantCards[i].price %>
+                    </p>
+                </div>
+                <% } %>
+        </div>
+    </div>
 </body>
+
 </html>
