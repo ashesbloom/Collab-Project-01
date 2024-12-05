@@ -1,0 +1,16 @@
+{
+  "name": "collab-project-01",
+  "version": "1.0.0",
+  "description": "Working on it ...",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "ashesbloom",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "nodeman": "^1.1.2",
+    "path": "^0.12.7"
+  }
+}
