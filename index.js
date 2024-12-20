@@ -3,6 +3,9 @@ const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3000;
 
+const staticRedirect = require('./routes/staticRoutes');
+
+
 const mongo = require('mongoose');
 
 mongo.connect('url')
@@ -15,11 +18,8 @@ app.set('view engine', 'ejs');
 app.set('views',path.resolve('./views'));
 app.use(express.static(path.resolve('./public')));
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
-
-app.get('/amdin',Adminroutes);
+app.get('/',staticRedirect);
+app.get('/amdin',);
 
 
 
