@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Responsive Navbar */
+.navbar {
+    background-color: #ffede7 !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.navbar-brand {
+    letter-spacing: 3px;
+    color: #c24244;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    width: 100%;
+}
+
+.navbar-nav .nav-item {
+    margin: 5px 10px;
+    text-align: center;
+}
+
+.navbar-nav .nav-link {
+    color: #7f4722;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #c24244;
+}
+
+.navbar-nav .nav-link i {
+    margin-right: 5px;
+}
+
+/* Responsive Today's Special Section */
+#todays_special {
+    background: linear-gradient(135deg, #FFF6E6, #FFE5D3);
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#todays_special_inner {
+    max-width: 100%;
+    width: 90%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+#todays_special_inner h2 {
+    color: #c24244;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#todays_special_inner p {
+    color: #7f4722;
+    font-size: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Responsive Card Styles */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 15px;
+    flex-wrap: wrap;
+}
+
+.card {
+    --main-color: #000;
+    --submain-color: #78858F;
+    --bg-color: #fff;
+    position: relative;
+    width: 280px;
+    max-width: 95%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--bg-color);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card__img {
+    height: 180px;
+    width: 100%;
+}
+
+.card__img svg {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.card__avatar {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: var(--bg-color);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: calc(50% - 50px);
+}
+
+.card__avatar svg {
+    width: 90px;
+    height: 90px;
+}
+
+.card__title {
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--main-color);
+    text-align: center;
+}
+
+.card__subtitle {
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--submain-color);
+    text-align: center;
+}
+
+.card__wrapper {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.card__btn {
+    width: 100px;
+    height: 35px;
+    border: 2px solid var(--main-color);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--main-color);
+    background: var(--bg-color);
+    text-transform: uppercase;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.card__btn-solid {
+    background: var(--main-color);
+    color: var(--bg-color);
+}
+
+.card__btn:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+}
+
+.card__btn-solid:hover {
+    background: var(--bg-color);
+    color: var(--main-color);
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 5px;
+    }
+
+    #todays_special_inner h2 {
+        font-size: 1.5rem;
+    }
+
+    #todays_special_inner p {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar-nav .nav-link {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link i {
+        margin-right: 0;
+        margin-bottom: 3px;
+    }
+
+    .card__btn {
+        width: 90px;
+        font-size: 11px;
+    }
+}

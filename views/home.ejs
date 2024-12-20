@@ -3,66 +3,295 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Restaurant Explorer</title>
-    <style>
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            border: 1px solid #ddd;
-            padding: 15px;
-            text-align: center;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Bites Restaurant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="home.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">Restaurant Explorer</div>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/menu">Menu</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Delicious Bites</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#home"><i class="fas fa-home"></i>Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#menu"><i class="fas fa-utensils"></i>Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about"><i class="fas fa-info-circle"></i>About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#specials"><i class="fas fa-star"></i>Specials</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+            </li>
         </ul>
     </nav>
 
     <!-- Today's Special Section -->
-    <div class="today-special">
-        <h2>Today's Special</h2>
-        <div class="special-item">
-            <h3>
-                <%= todaysSpecial.name %>
-            </h3>
-            <p>
-                <%= todaysSpecial.description %>
-            </p>
-            <p>Price: $<%= todaysSpecial.price %>
-            </p>
+    <div id="todays_special">
+        <div id="todays_special_inner">
+            <h2>Today's Special</h2>
+            <p>Indulge in our chef's carefully crafted dish of the day. A culinary experience that promises to tantalize
+                your taste buds and leave you craving more.</p>
         </div>
     </div>
 
-    <!-- Restaurant Cards Section -->
-    <div class="menu-section">
-        <h2>Our Menu</h2>
-        <div class="card-container">
-            <% for(let i=0; i < restaurantCount; i++) { %>
-                <div class="card">
-                    <h3>
-                        <%= restaurantCards[i].name %>
-                    </h3>
-                    <img src="<%= restaurantCards[i].image %>" alt="<%= restaurantCards[i].name %>">
-                    <p>
-                        <%= restaurantCards[i].description %>
-                    </p>
-                    <p>Price: $<%= restaurantCards[i].price %>
-                    </p>
-                </div>
-                <% } %>
+    <!-- Restaurant Cards -->
+    <div class="cards">
+        <div class="card">
+            <div class="card__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <rect fill="#ffffff" width="540" height="450"></rect>
+                    <defs>
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0" y2="100%"
+                            gradientTransform="rotate(222,648,379)">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#FC726E"></stop>
+                        </linearGradient>
+                        <pattern patternUnits="userSpaceOnUse" id="b" width="300" height="250" x="0" y="0"
+                            viewBox="0 0 1080 900">
+                            <!-- Pattern content from previous example -->
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" fill="url(#a)" width="100%" height="100%"></rect>
+                    <rect x="0" y="0" fill="url(#b)" width="100%" height="100%"></rect>
+                </svg>
+            </div>
+            <div class="card__avatar">
+                <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Avatar SVG from previous example -->
+                </svg>
+            </div>
+            <div class="card__title">Classic Burger</div>
+            <div class="card__subtitle">Signature Dish</div>
+            <div class="card__wrapper">
+                <button class="card__btn">Details</button>
+                <button class="card__btn card__btn-solid">Order</button>
+            </div>
+        </div>
+
+        <!-- Repeat the card structure for more menu items -->
+        <div class="card">
+            <div class="card__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <rect fill="#ffffff" width="540" height="450"></rect>
+                    <defs>
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0" y2="100%"
+                            gradientTransform="rotate(222,648,379)">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#4BC190"></stop>
+                        </linearGradient>
+                        <pattern patternUnits="userSpaceOnUse" id="b" width="300" height="250" x="0" y="0"
+                            viewBox="0 0 1080 900">
+                            <!-- Pattern content from previous example -->
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" fill="url(#a)" width="100%" height="100%"></rect>
+                    <rect x="0" y="0" fill="url(#b)" width="100%" height="100%"></rect>
+                </svg>
+            </div>
+            <div class="card__avatar">
+                <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Avatar SVG from previous example -->
+                </svg>
+            </div>
+            <div class="card__title">Crispy Salad</div>
+            <div class="card__subtitle">Healthy Option</div>
+            <div class="card__wrapper">
+                <button class="card__btn">Details</button>
+                <button class="card__btn card__btn-solid">Order</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <rect fill="#ffffff" width="540" height="450"></rect>
+                    <defs>
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0" y2="100%"
+                            gradientTransform="rotate(222,648,379)">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#4BC190"></stop>
+                        </linearGradient>
+                        <pattern patternUnits="userSpaceOnUse" id="b" width="300" height="250" x="0" y="0"
+                            viewBox="0 0 1080 900">
+                            <!-- Pattern content from previous example -->
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" fill="url(#a)" width="100%" height="100%"></rect>
+                    <rect x="0" y="0" fill="url(#b)" width="100%" height="100%"></rect>
+                </svg>
+            </div>
+            <div class="card__avatar">
+                <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Avatar SVG from previous example -->
+                </svg>
+            </div>
+            <div class="card__title">Crispy Salad</div>
+            <div class="card__subtitle">Healthy Option</div>
+            <div class="card__wrapper">
+                <button class="card__btn">Details</button>
+                <button class="card__btn card__btn-solid">Order</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <rect fill="#ffffff" width="540" height="450"></rect>
+                    <defs>
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0" y2="100%"
+                            gradientTransform="rotate(222,648,379)">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#4BC190"></stop>
+                        </linearGradient>
+                        <pattern patternUnits="userSpaceOnUse" id="b" width="300" height="250" x="0" y="0"
+                            viewBox="0 0 1080 900">
+                            <!-- Pattern content from previous example -->
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" fill="url(#a)" width="100%" height="100%"></rect>
+                    <rect x="0" y="0" fill="url(#b)" width="100%" height="100%"></rect>
+                </svg>
+            </div>
+            <div class="card__avatar">
+                <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Avatar SVG from previous example -->
+                </svg>
+            </div>
+            <div class="card__title">Crispy Salad</div>
+            <div class="card__subtitle">Healthy Option</div>
+            <div class="card__wrapper">
+                <button class="card__btn">Details</button>
+                <button class="card__btn card__btn-solid">Order</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <rect fill="#ffffff" width="540" height="450"></rect>
+                    <defs>
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0" y2="100%"
+                            gradientTransform="rotate(222,648,379)">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#4BC190"></stop>
+                        </linearGradient>
+                        <pattern patternUnits="userSpaceOnUse" id="b" width="300" height="250" x="0" y="0"
+                            viewBox="0 0 1080 900">
+                            <!-- Pattern content from previous example -->
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" fill="url(#a)" width="100%" height="100%"></rect>
+                    <rect x="0" y="0" fill="url(#b)" width="100%" height="100%"></rect>
+                </svg>
+            </div>
+            <div class="card__avatar">
+                <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Avatar SVG from previous example -->
+                </svg>
+            </div>
+            <div class="card__title">Crispy Salad</div>
+            <div class="card__subtitle">Healthy Option</div>
+            <div class="card__wrapper">
+                <button class="card__btn">Details</button>
+                <button class="card__btn card__btn-solid">Order</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <rect fill="#ffffff" width="540" height="450"></rect>
+                    <defs>
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0" y2="100%"
+                            gradientTransform="rotate(222,648,379)">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#4BC190"></stop>
+                        </linearGradient>
+                        <pattern patternUnits="userSpaceOnUse" id="b" width="300" height="250" x="0" y="0"
+                            viewBox="0 0 1080 900">
+                            <!-- Pattern content from previous example -->
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" fill="url(#a)" width="100%" height="100%"></rect>
+                    <rect x="0" y="0" fill="url(#b)" width="100%" height="100%"></rect>
+                </svg>
+            </div>
+            <div class="card__avatar">
+                <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Avatar SVG from previous example -->
+                </svg>
+            </div>
+            <div class="card__title">Crispy Salad</div>
+            <div class="card__subtitle">Healthy Option</div>
+            <div class="card__wrapper">
+                <button class="card__btn">Details</button>
+                <button class="card__btn card__btn-solid">Order</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <rect fill="#ffffff" width="540" height="450"></rect>
+                    <defs>
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0" y2="100%"
+                            gradientTransform="rotate(222,648,379)">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#4BC190"></stop>
+                        </linearGradient>
+                        <pattern patternUnits="userSpaceOnUse" id="b" width="300" height="250" x="0" y="0"
+                            viewBox="0 0 1080 900">
+                            <!-- Pattern content from previous example -->
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" fill="url(#a)" width="100%" height="100%"></rect>
+                    <rect x="0" y="0" fill="url(#b)" width="100%" height="100%"></rect>
+                </svg>
+            </div>
+            <div class="card__avatar">
+                <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Avatar SVG from previous example -->
+                </svg>
+            </div>
+            <div class="card__title">Crispy Salad</div>
+            <div class="card__subtitle">Healthy Option</div>
+            <div class="card__wrapper">
+                <button class="card__btn">Details</button>
+                <button class="card__btn card__btn-solid">Order</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__img">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%">
+                    <rect fill="#ffffff" width="540" height="450"></rect>
+                    <defs>
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0" y2="100%"
+                            gradientTransform="rotate(222,648,379)">
+                            <stop offset="0" stop-color="#ffffff"></stop>
+                            <stop offset="1" stop-color="#4BC190"></stop>
+                        </linearGradient>
+                        <pattern patternUnits="userSpaceOnUse" id="b" width="300" height="250" x="0" y="0"
+                            viewBox="0 0 1080 900">
+                            <!-- Pattern content from previous example -->
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" fill="url(#a)" width="100%" height="100%"></rect>
+                    <rect x="0" y="0" fill="url(#b)" width="100%" height="100%"></rect>
+                </svg>
+            </div>
+            <div class="card__avatar">
+                <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Avatar SVG from previous example -->
+                </svg>
+            </div>
+            <div class="card__title">Crispy Salad</div>
+            <div class="card__subtitle">Healthy Option</div>
+            <div class="card__wrapper">
+                <button class="card__btn">Details</button>
+                <button class="card__btn card__btn-solid">Order</button>
+            </div>
         </div>
     </div>
 </body>
